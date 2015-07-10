@@ -1,6 +1,6 @@
 package main.java.app;
 
-public class Weather {
+public class WeatherTest {
 	public String pinpointLocations;
 
 	/**

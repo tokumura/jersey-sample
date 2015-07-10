@@ -11,5 +11,12 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/doma-1.38.0.jar"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/postgresql-8.4-701.jdbc4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

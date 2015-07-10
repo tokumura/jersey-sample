@@ -1,0 +1,1 @@
+SELECT id, gps, location, date_label, telop, version_no FROM weather WHERE id = /* id */99

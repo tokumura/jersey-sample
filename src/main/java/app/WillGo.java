@@ -15,6 +15,13 @@ import javax.json.stream.JsonParser;
 import javax.json.stream.JsonParser.Event;
 import javax.json.stream.JsonParserFactory;
 
+import org.seasar.doma.jdbc.tx.LocalTransaction;
+
+import main.java.conf.AppConfig;
+import main.java.dao.WeatherDao;
+import main.java.dao.WeatherDaoImpl;
+import main.java.entity.Weather;
+
 //import com.fasterxml.jackson.core.JsonProcessingException;
 //import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -24,10 +31,14 @@ public class WillGo {
 	@Path("show")
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public String show(@QueryParam("city") String city) throws Exception {
+	public String show(@QueryParam("city") String city, @QueryParam("id") Integer id) throws Exception {
 		WeatherClient wc = new WeatherClient();
 		String json = wc.request();
 		this.parse();
+
+		// doma test
+		domaSelect(id);
+
 		return json;
 	}
 
@@ -88,6 +99,18 @@ public class WillGo {
 				System.out.print(parser.getString()); break;
 			}
 			}
+		}
+	}
+
+	public void domaSelect(Integer id) {
+		LocalTransaction tx = AppConfig.getLocalTransaction();
+		try {
+			tx.begin();
+			WeatherDao dao = new WeatherDaoImpl();
+			Weather weather = dao.selectById(id);
+			System.out.println(weather.location);
+		} catch (Exception ex) {
+			tx.rollback();
 		}
 	}
 }
