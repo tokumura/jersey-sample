@@ -1,8 +1,7 @@
-package app;
+package main.java.app;
 
 import java.io.IOException;
 import java.net.URI;
-import javax.servlet.http.HttpServlet;
 import org.glassfish.jersey.jdkhttp.JdkHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import com.sun.net.httpserver.HttpServer;

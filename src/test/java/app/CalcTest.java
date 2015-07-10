@@ -1,4 +1,4 @@
-package app;
+package test.java.app;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
@@ -9,7 +9,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
 
-import app.Calc;;
+import main.java.app.Calc;;
 
 public class CalcTest extends JerseyTest {
 /*
